@@ -4,12 +4,14 @@
   "description": "English vocabulary quiz game",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "devStart": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fs": "^0.0.1-security"
+    "express": "^4.19.2",
+    "fs": "^0.0.1-security",
+    "nodemon": "^3.1.3"
   }
 }
