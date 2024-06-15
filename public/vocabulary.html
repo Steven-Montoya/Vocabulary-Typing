@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <script src="vocabulary.js"></script>
+  <link rel="stylesheet" href="vocabulary.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>vocabulary</title>
 </head>
 <body>
   <h1>ここに英単語が表示されます。</h1>
-  <ul>
-    <% vocabulary.forEach(function(item, index) { %>
-      <li>
-        <strong><%= item.English %></strong>: <%= item.Japanese %>
-      </li>
-    <% }); %>
-  </ul>
+  <form action="/" method="get">
+    <button>戻る</button>
+  </form>
+  <div id="json"></div>
 </body>
 </html>

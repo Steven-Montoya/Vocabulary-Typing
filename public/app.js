@@ -1,3 +1,85 @@
+let vocabulary = [];
+let UsedWord = [];
+
+let Word_choice = 0;
+let Word_value = 0;
+let Problem_text = "";
+let Typing_text = "";
+
+// server.jsで送ったjsonデータを取得
+
+
+document.addEventListener('DOMContentLoaded', () =>{
+  const start_button = document.getElementById('start_button');
+  document.getElementById('skip_button').style.display = "none";
+  document.getElementById('skip_button').addEventListener("click", skip);
+  start_button.addEventListener("click", GameStart);
+});
+
+function GameStart () {
+  // スタートボタンを削除
+  start_button.remove();
+  // ゲーム画面用のボタンを表示
+  document.getElementById('skip_button').style.display = "block";
+  // タイピングゲーム機能
+  GetWord();
+  document.addEventListener('keydown', e =>{
+    if(Typing_text.charAt(Word_value) == e.key) {
+      Word_value++;
+      document.getElementById('typing').innerHTML = Typing_text.substring(0, Word_value);
+      if(Word_value === Word_length) {
+        GetWord();
+      };
+    };
+  });
+};
+
+function skip () { 
+  GetWord();
+};
+
+// 新しい単語を取得し、使った単語を記録する関数
+function GetWord() {
+  fetch('/data')
+    .then(response => response.json())
+    .then(data => {
+      vocabulary = vocabulary.concat(data);
+      console.log("app.jsで単語を取得しました。")
+      if (UsedWord.length >= vocabulary.length) {
+        UsedWord.splice(0);
+        console.log("全単語を周回しました。")
+      }
+      let newWord;
+      do {
+        newWord = Math.floor(Math.random() * vocabulary.length); 
+      } while (UsedWord.includes(newWord)); 
+      UsedWord.push(newWord); 
+      Word_choice = newWord;
+      Word_value = 0;
+      Word_length = vocabulary[Word_choice].English.length;
+      Problem_text = vocabulary[Word_choice].Japanese;
+      Typing_text = vocabulary[Word_choice].English;
+      document.getElementById('typing').innerHTML = " ";
+      document.getElementById('problem').innerHTML = Problem_text;
+    })
+    .catch(error => console.error('英単語データを取得できませんでした', error));
+};
+
+// 単語一覧を管理する関数
+function VocabularyView() {
+  start_button.remove();
+  // coming soon...
+}
+
+
+
+
+
+
+
+
+
+/*
 let vocabulary = [
   {"Japanese":"違った", "English": "different"},
   {"Japanese":"趣味", "English": "hobby"},
@@ -103,63 +185,4 @@ let vocabulary = [
   {"Japanese":"比喩", "English": "metaphor"},
   {"Japanese":"(息などを)吐き出す:発散する", "English": "exhale"}
 ];
-let UsedWord = [];
-
-let Word_choice = 0;
-let Word_value = 0;
-let Problem_text = "";
-let Typing_text = "";
-
-document.addEventListener('DOMContentLoaded', () =>{
-  const start_button = document.getElementById('start_button');
-  document.getElementById('skip_button').style.display = "none";
-  document.getElementById('skip_button').addEventListener("click", skip);
-  start_button.addEventListener("click", GameStart);
-});
-
-function GameStart () {
-  // スタートボタンを削除
-  start_button.remove();
-  // ゲーム画面用のボタンを表示
-  document.getElementById('skip_button').style.display = "block";
-  // タイピングゲーム機能
-  GetWord();
-  document.addEventListener('keydown', e =>{
-    if(Typing_text.charAt(Word_value) == e.key) {
-      Word_value++;
-      document.getElementById('typing').innerHTML = Typing_text.substring(0, Word_value);
-      if(Word_value === Word_length) {
-        GetWord();
-      };
-    };
-  });
-};
-
-function skip () { 
-  GetWord();
-};
-
-// 新しい単語を取得し、使った単語を記録する関数
-function GetWord() {
-  if (UsedWord.length >= vocabulary.length) {
-    UsedWord.splice(0);
-  }
-  let newWord;
-  do {
-    newWord = Math.floor(Math.random() * vocabulary.length); 
-  } while (UsedWord.includes(newWord)); 
-  UsedWord.push(newWord); 
-  Word_choice = newWord;
-  Word_value = 0;
-  Word_length = vocabulary[Word_choice].English.length;
-  Problem_text = vocabulary[Word_choice].Japanese;
-  Typing_text = vocabulary[Word_choice].English;
-  document.getElementById('typing').innerHTML = " ";
-  document.getElementById('problem').innerHTML = Problem_text;
-};
-
-// 単語一覧を管理する関数
-function VocabularyView() {
-  start_button.remove();
-  // coming soon...
-}
+*/
