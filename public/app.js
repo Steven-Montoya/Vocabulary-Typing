@@ -112,16 +112,14 @@ let Typing_text = "";
 
 document.addEventListener('DOMContentLoaded', () =>{
   const start_button = document.getElementById('start_button');
-  const vocabulary_view = document.getElementById('vocabulary_view');
   document.getElementById('skip_button').style.display = "none";
   document.getElementById('skip_button').addEventListener("click", skip);
   start_button.addEventListener("click", GameStart);
 });
 
 function GameStart () {
-  // メニュー画面に表示されているボタンを削除
+  // スタートボタンを削除
   start_button.remove();
-  vocabulary_view.remove();
   // ゲーム画面用のボタンを表示
   document.getElementById('skip_button').style.display = "block";
   // タイピングゲーム機能
