@@ -1,0 +1,14 @@
+.mainText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+#problem, #typing {
+  margin: 10px 0;
+}
