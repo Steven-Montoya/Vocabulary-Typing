@@ -7,5 +7,12 @@
 </head>
 <body>
   <h1>ここに英単語が表示されます。</h1>
+  <ul>
+    <% vocabulary.forEach(function(item, index) { %>
+      <li>
+        <strong><%= item.English %></strong>: <%= item.Japanese %>
+      </li>
+    <% }); %>
+  </ul>
 </body>
 </html>

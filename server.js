@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const fs = require('fs');
+const data = require('./vocabulary.json')
 
 const port = 8000;
 
@@ -10,7 +12,7 @@ app.get("/", (req, res) => {
   res.render('index')
 })
 app.get("/vocabulary", (req, res)=>{
-  res.redirect("/vocabulary.html");
+  res.render("vocabulary", {vocabulary: data});
 });
 app.get("/start", (req, res) => {
   res.redirect("./app.html")
