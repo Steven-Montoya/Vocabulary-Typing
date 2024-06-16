@@ -2,9 +2,11 @@ const express = require("express");
 const app = express();
 const fs = require('fs');
 const _ = require('lodash');
+// 英単語データのパスを設定
 const dataPath = './vocabulary.json';
 let data = JSON.parse(fs.readFileSync(dataPath));
 let deleteList = [];
+// ポート番号
 const PORT = 8000;
 
 // ミドルウェア
