@@ -43,7 +43,7 @@ app.post("/deleteList", (req, res) => {
 });
 
 // 追加リクエストに関するルート
-app.post("/addItem", (req, res) => {
+app.post("/addList", (req, res) => {
   // POSTのbody(中身)を取得
   const item = req.body; 
   // データリストにPOSTされたデータを足す
