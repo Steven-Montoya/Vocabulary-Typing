@@ -8,11 +8,23 @@
   <title>英単語一覧</title>
 </head>
 <body>
-  <h1>〜英単語一覧〜</h1>
-  <form action="/" method="get">
-    <button>戻る</button>
-  </form>
-  <div id="addJSON"></div>
-  <div id="deleteJSON"></div>
+  <div class="Main">
+    <h1>〜英単語一覧〜</h1>
+    <form action="/" method="get">
+      <button>戻る</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>英単語</th>
+          <th>和訳(意味)</th>
+          <th>削除</th>
+        </tr>
+      </thead>
+      <tbody id="vocabulary_item">
+      </tbody>
+    </table>
+    <div id="deleteJSON" class="deleteJSON"></div>
+  </div>
 </body>
 </html>

@@ -7,7 +7,7 @@ const dataPath = './vocabulary.json';
 let data = JSON.parse(fs.readFileSync(dataPath));
 let deleteList = [];
 // ポート番号
-const PORT = 8000;
+const PORT = 8080;
 
 // ミドルウェア
 app.use(express.json());

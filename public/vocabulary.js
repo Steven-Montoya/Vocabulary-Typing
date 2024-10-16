@@ -3,14 +3,23 @@ fetch('/data')
   .then(response => response.json())
   .then(data =>{
     // 単語ごとの表示設定
-    const JSONtext = document.getElementById('addJSON');
+    const vocabulary_item = document.getElementById('vocabulary_item');
     data.forEach(item => {
-      const div = document.createElement('div');
+      const tr_row = document.createElement('tr');
+      const td_English = document.createElement('td');
+      const td_Japanese = document.createElement('td');
+      const td_Button = document.createElement('td');
       const remove = document.createElement('button');
-      div.textContent = `${item.Japanese} : ${item.English}`;
+      td_English.textContent = `${item.English}`;
+      td_Japanese.textContent = `${item.Japanese}`;
+      td_Button.id = 'Button_Area'
       remove.textContent = "削除";
-      JSONtext.appendChild(div);
-      JSONtext.appendChild(remove);
+      // 子要素に指定
+      vocabulary_item.appendChild(tr_row);
+      tr_row.appendChild(td_English);
+      tr_row.appendChild(td_Japanese);
+      tr_row.appendChild(td_Button);
+      td_Button.appendChild(remove);
       remove.addEventListener('click', () => {
         // 削除ボタンをクリックしたときにPOSTリクエストを作成
         fetch('/deleteList', {
@@ -54,7 +63,7 @@ fetch('/delete')
       deleteText.appendChild(add);
       add.addEventListener('click', () => {
         // 削除ボタンをクリックしたときにPOSTリクエストを作成
-        fetch('/addItem', {
+        fetch('/addList', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

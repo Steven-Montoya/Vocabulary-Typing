@@ -1,3 +1,28 @@
-.button {
-  margin-right: 8px;
+.Main{
+  padding: 0 20px;
+}
+
+#Button_Area {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  position: sticky;
+  vertical-align: bottom;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+th,
+td {
+  padding: 5px 10px;
 }
