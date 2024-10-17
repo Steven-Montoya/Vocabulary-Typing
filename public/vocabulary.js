@@ -9,11 +9,20 @@ fetch('/data')
       const td_English = document.createElement('td');
       const td_Japanese = document.createElement('td');
       const td_Button = document.createElement('td');
-      const remove = document.createElement('button');
+      const remove = document.createElement('a');
+      const icon = document.createElement('i');
       td_English.textContent = `${item.English}`;
       td_Japanese.textContent = `${item.Japanese}`;
       td_Button.id = 'Button_Area'
-      remove.textContent = "削除";
+      //アイコンの設定
+      icon.className = 'fas fa-trash-alt';
+      icon.style.fontSize = '18px';
+      icon.style.paddingRight = '5px';
+      icon.style.color = '#aa141e';
+      //削除ボタンの設定
+      remove.textContent = "削除する";
+      remove.prepend(icon);
+      remove.id = 'delete_button'
       // 子要素に指定
       vocabulary_item.appendChild(tr_row);
       tr_row.appendChild(td_English);
@@ -53,14 +62,31 @@ fetch('/delete')
   .then(response => response.json())
   .then(data => {
     // 単語ごとの表示設定
-    const deleteText = document.getElementById('deleteJSON');
+    const deleteItem = document.getElementById('delete_item');
     data.forEach(item => {
-      const deleteDiv = document.createElement('div');
-      const add = document.createElement('button');
-      add.textContent = "追加";
-      deleteDiv.textContent = `${item.Japanese} : ${item.English}`;
-      deleteText.appendChild(deleteDiv);
-      deleteText.appendChild(add);
+      const tr_row = document.createElement('tr');
+      const td_English = document.createElement('td');
+      const td_Japanese = document.createElement('td');
+      const td_Button = document.createElement('td');
+      const add = document.createElement('a');
+      const icon = document.createElement('i');
+      td_English.textContent = `${item.English}`;
+      td_Japanese.textContent = `${item.Japanese}`;
+      td_Button.id = 'Button_Area'
+      //  アイコンの設定
+      icon.className = 'fas fa-plus-square';
+      icon.style.fontSize = '18px';
+      icon.style.paddingRight = '5px';
+      icon.style.color = '#008685';
+      //  追加ボタンの設定
+      add.textContent = "追加する";
+      add.prepend(icon);
+      add.id = 'add_button'
+      deleteItem.appendChild(tr_row);
+      tr_row.appendChild(td_English);
+      tr_row.appendChild(td_Japanese);
+      tr_row.appendChild(td_Button);
+      td_Button.appendChild(add);
       add.addEventListener('click', () => {
         // 削除ボタンをクリックしたときにPOSTリクエストを作成
         fetch('/addList', {

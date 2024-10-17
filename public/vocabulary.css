@@ -2,12 +2,65 @@
   padding: 0 20px;
 }
 
+.back {
+  max-width: 90px;
+  height: auto;
+}
+.back:hover {
+  border-bottom: 5px solid #ff321e;
+}
+
+.back_button { 
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.useful_button {
+  max-width: 230px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+.useful_button:hover {
+  color: #ff321e;
+  border-bottom: 3px solid #ff321e;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
 #Button_Area {
   display: flex;
   justify-content: center;
 }
 
+#delete_button {
+  text-decoration: none;
+}
+#delete_button:hover {
+  color: #aa141e;
+  border-bottom: 2px solid #aa141e;
+}
+#add_button {
+  text-decoration: none;
+}
+#add_button:hover {
+  color: #008685;
+  border-bottom: 2px solid #008685;
+}
+
 table {
+  margin-top: 10px;
   width: 100%;
 }
 
