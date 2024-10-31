@@ -5,14 +5,16 @@
 .back {
   max-width: 90px;
   height: auto;
+  border: solid 5px;
+  border-radius: 5px;
 }
 .back:hover {
-  border-bottom: 5px solid #ff321e;
+  color: #ff321e;
 }
 
 .back_button { 
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
   text-decoration: none;
   color: inherit;

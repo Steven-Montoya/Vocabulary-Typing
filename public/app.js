@@ -9,13 +9,14 @@ let UsedWord = [];
 let Word_choice = 0;
 let Word_value = 0;
 let Word_mistake = 0;
-let Question_sentence = ""; //問題文
-let Typing_text = ""; //打っている文字
-let Typing_hint = ""; //ヒント
+let Question_sentence = "";
+let English_sentence = "";
 
 document.addEventListener('DOMContentLoaded', () =>{
   const start_button = document.getElementById('start_button');
   const skip_button = document.getElementById('skip_button');
+  const hint = document.getElementById('hint');
+  hint.style.display = "none"
   skip_button.style.display = "none";
   skip_button.addEventListener("click", skip);
   start_button.addEventListener("click", GameStart);
@@ -29,19 +30,19 @@ function GameStart () {
   // タイピングゲーム機能
   GetWord();
   document.addEventListener('keydown', e =>{
-    if(Typing_text.charAt(Word_value) == e.key) {
+    if(English_sentence.charAt(Word_value) == e.key) {
       Word_value++;
-      document.getElementById('typing').innerHTML = Typing_text.substring(0, Word_value);
+      document.getElementById('typing').innerHTML = English_sentence.substring(0, Word_value);
       if(Word_value === Word_length) {
         Word_mistake = 0;
+        hint.style.display = "none"
         GetWord();
       };
     }else{
       Word_mistake++;
       if(Word_mistake >= 5) //間違えた回数が5回超えたとき
       {
-        //ここに処理を書く
-        console.log("ヒントを表示します")
+        hint.style.display = "block" // ヒントを表示する
       }
     }
   });
@@ -70,9 +71,10 @@ function GetWord() {
   Word_value = 0;
   Word_length = vocabulary[Word_choice].English.length;
   Question_sentence = vocabulary[Word_choice].Japanese;
-  Typing_text = vocabulary[Word_choice].English;
+  English_sentence = vocabulary[Word_choice].English;
   document.getElementById('typing').innerHTML = " ";
   document.getElementById('problem').innerHTML = Question_sentence;
+  document.getElementById('hint').innerHTML = English_sentence;
 };
 
 fetch('/data')

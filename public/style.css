@@ -9,6 +9,10 @@
   font-weight: bolder;
 }
 
-#problem, #typing {
+#problem, #typing, #hint{
   margin: 10px 0;
+}
+
+#hint {
+  color: #ddd;
 }

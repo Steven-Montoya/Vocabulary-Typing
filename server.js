@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const fs = require('fs');
 const _ = require('lodash');
+const path = require('path');
 // 英単語データのパスを設定
 const dataPath = './vocabulary.json';
 let data = JSON.parse(fs.readFileSync(dataPath));
@@ -12,7 +13,7 @@ const PORT = 8080;
 // ミドルウェア
 app.use(express.json());
 app.set("view engine", "ejs");
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // メニュー画面のルート
 app.get("/", (req, res) => {
