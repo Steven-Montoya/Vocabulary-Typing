@@ -3,16 +3,34 @@
 <head>
   <script src="app.js"></script>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>英単語ゲーム！</title>
 </head>
 <body>
-  <button id="start_button">スタートボタン</button>
-  <button id="skip_button">スキップ</button>
-  <form action="/" method="get">
-    <button id="return_button">戻る</button>
-  </form>
+  <div class="return">
+    <a class="return_button" href="/">
+      <i class="fas fa-long-arrow-alt-left" style="font-size: 30px; padding-right: 10px;"></i>
+      戻る
+    </a>
+  </div>
+  <div class="start">
+    <button id="start_button">
+      <a class="start_button_style">
+        <i class="fas fa-play" style="font-size: 24px; padding: 0 10px;"></i>
+        スタート！
+      </a>
+    </button>
+  </div>
+  <div class="skip">
+    <button id="skip_button">
+      <a class="skip_button_style">
+        <i class="fas fa-forward" style="font-size: 30px; padding: 0 10px;"></i>
+        スキップ
+      </a>
+    </button>
+  </div>
   <div class="mainText">
     <p id="problem"></p>
     <p id="typing"></p>

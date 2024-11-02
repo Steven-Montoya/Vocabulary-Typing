@@ -1,6 +1,5 @@
 /*
 task:
-  ヒントを作成
   Webを整える
 */
 let vocabulary = [];

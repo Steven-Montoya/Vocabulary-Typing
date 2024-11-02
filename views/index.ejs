@@ -15,21 +15,7 @@
     .select_button {
       padding: 10px 35%;
     }
-    .play_button {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      text-decoration: none;
-      border: solid 5px;
-      border-radius: 10px;
-      color: inherit;
-      font-weight: bold;
-      font-size: 24px;
-    }
-    .play_button:hover {
-      color: #ff321e;
-    }
-    .vocabulary_button {
+    .vocabulary_button, .play_button {
       margin-top: 20px;
       margin-bottom: 20px;
       display: flex;
@@ -45,43 +31,13 @@
     .vocabulary_button:hover {
       color: #ff321e;
     }
+    .play_button:hover {
+      color: #ff321e;
+    }
     .article {
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-    .bottom {
-      min-height: calc(100vh - 60px);
-    }
-    .bottom_image {
-      padding-left: 30px;
-      font-size: 24px;
-    }
-    .share_area {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      background-color: gray;
-      color: white;
-    }
-    .share_area,
-    ul {
-      display: flex;
-      align-items: center;
-      margin-right: 10px;
-    }
-    .share_area,
-    li {
-      display: flex;
-      align-items: center;
-      margin-right: 20px;
-      margin-top: 6px;
-      list-style: none;
     }
   </style>
   <title>メニュー画面</title>
@@ -92,29 +48,12 @@
       <img src="../images/English_game_title_update.png" alt="ゲームタイトル" height="200px">
     </div>
     <div class="select_button">
-      <a class="play_button" href="/start">ゲームを遊ぶ</a>
+      <a class="play_button" href="/start"><i class="fas fa-chess-queen" style="padding-right: 10px;"></i>ゲームを遊ぶ</a>
       <a class="vocabulary_button" href="/vocabulary" ><i class="fas fa-eye" style="font-size: 18px; padding-right: 10px;"></i>収録されている英単語を見る</a>
     </div>
   </div>
   <div class="article">
-    <span>このゲームはN高等学校/静岡キャンパス/キャンパスフェスティバルにより作成されたものです</span>
+    <span>Bella questa!</span>
   </div>
-  <footer class="bottom">
-    <section class="share_area">
-      <img class="bottom_image" src="../images/N_school.png" alt="N高ロゴ" width="auto" height="60px">
-      <ul>
-        <li>
-          <a href="https://www.instagram.com" target="_blank">
-            <img src="../images/Instagram.png" alt="インスタ" width="40px" height="40px">
-          </a>
-        </li>
-        <li>
-          <a href="http://x.com" target="_blank">
-            <img src="../images/x.png" alt="ツイッター" width="40px" height="40px">
-          </a>
-        </li>
-      </ul>
-    </section>
-  </footer>
 </body>
 </html>

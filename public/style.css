@@ -16,3 +16,52 @@
 #hint {
   color: #ddd;
 }
+
+.return {
+  margin-bottom: 20px;
+  max-width: 90px;
+  height: auto;
+  border: solid 5px;
+  border-radius: 5px;
+}
+.return:hover {
+  color: #ff321e;
+}
+
+.return_button { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#start_button, #skip_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  border: none;
+}
+
+.start_button_style, .skip_button_style{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: solid 5px;
+  border-radius: 5px;
+  color: inherit;
+  font-weight: bold;
+  font-size: 24px;
+}
+.start_button_style:hover {
+  color: #ff321e;
+}
+.skip_button_style:hover {
+  color: #ff321e;
+}
